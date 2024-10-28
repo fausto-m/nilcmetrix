@@ -1,12 +1,15 @@
-#IDD3~=0.1.0
-nltk~=3.5
-termcolor~=1.1.0
-setuptools~=51.1.1
-numpy~=1.19.5
-nlpnet~=1.2.4
-pip~=20.3.3
-pypi-kenlm==0.1.20210121
-gensim~=3.8.3
-lxml~=4.6.2
-scipy~=1.6.0
-SQLAlchemy~=0.9.9
+# pip~=24.1.2 #upgrading, since the Dockerfile install v23
+#IDD3~=0.1.0 # doesn't install automatically with python 3.11.10 and related dependencies
+nltk~=3.9.1
+termcolor~=2.5.0
+setuptools~=75.2.0
+numpy~=1.23.5
+# nlpnet~=1.2.4 # doesn't install automatically with python 3.11.10 and related dependencies
+# pypi-kenlm==0.1.20220713 # using kenlm instead
+kenlm~=0.2.0
+gensim~=4.3.3
+lxml~=5.3.0
+scipy~=1.13.1
+SQLAlchemy~=2.0.36
+spacy~=3.7.5
+psycopg2-binary~=2.9.10

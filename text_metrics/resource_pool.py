@@ -24,7 +24,8 @@ from text_metrics.tools import senter, word_tokenize,\
     positive_words, negative_words, simple_words, discourse_markers,\
     ambiguous_discourse_markers, getTemporalExpressions, pronomes_indefinidos,\
     palavras_dificeis, calc_log, conjuncoes_fund1, conjuncoes_fund2,\
-    translate, concreteness, load_psicolinguistico, palavras_tree
+    translate, concreteness, load_psicolinguistico, palavras_tree,\
+    spacy_tagger
 from text_metrics.tools.lsa import LsaSpace
 from text_metrics.tools.lm import KenLmLanguageModel
 from text_metrics.utils import is_valid_id, ilen
@@ -150,6 +151,7 @@ class DefaultResourcePool(ResourcePool):
         # Tools and helpers.
         self.register('pos_tagger', lambda: pos_tagger, pinned=True)
         self.register('univ_pos_tagger', lambda: univ_pos_tagger, pinned=True)
+        self.register('spacy_tagger', lambda: spacy_tagger, pinned=True)
         self.register('parser', lambda: parser, pinned=True)
         self.register('dep_parser', lambda: dep_parser, pinned=True)
         self.register('stemmer', lambda: stemmer, pinned=True)
@@ -222,6 +224,8 @@ class DefaultResourcePool(ResourcePool):
         self.register('psicolinguistico', self.load_psicolinguistico, pinned=True)
         self.register('brwac_frequencies', self._brwac_frequencies, pinned=True)
         self.register('brasileiro_frequencies', self._brasileiro_frequencies, pinned=True)
+        
+        self.register('possessive_pronouns', self._possessive_pronouns)
 
         # Temporal expression
         self.register('temporal_expressions', self._temporal_expressions)
@@ -856,4 +860,19 @@ class DefaultResourcePool(ResourcePool):
         """
         return load_psicolinguistico()
 
+    def _possessive_pronouns(self, person=None):
+        output = []
+        pronouns1 = ["meu", "meus", "minha", "minhas", "nosso", "nossos", "nossa", "nossas"]
+        pronouns2 = ["teu", "teus", "tua", "tuas", "vosso", "vossos", "vossa", "vossas"]
+        pronouns3 = ["seu", "seus", "sua", "suas", "dele", "deles", "dela", "delas"]
+        if (person == 1):
+            output = pronouns1
+        elif (person == 2):
+                output = pronouns2
+        elif (person == 3):
+            output = pronouns3
+        else:
+            output = pronouns1 + pronouns2 + pronouns3
+        return output
+    
 rp = DefaultResourcePool()

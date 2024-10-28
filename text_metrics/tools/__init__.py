@@ -23,6 +23,7 @@ from text_metrics.tools.dependency import *
 from text_metrics.tools.lsa import *
 
 pos_tagger = NLPNetTagger()
+spacy_tagger = SpacyTagger()
 univ_pos_tagger = OpenNLPUniversalTagger()
 parser = LxParser()
 dep_parser = MaltParser(tagger=univ_pos_tagger)

@@ -1,9 +1,12 @@
-# import os
+import os
 
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # BASE_DIR = '/Users/fafg/classifier/basedir'
 #BASE_DIR = '/home/sidleal/sid/usp/coh-metrix-nilc'
 BASE_DIR = '/opt/text_metrics'
+# BASE_DIR = '/text_metrics'
+# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 DIR = BASE_DIR + '/tools/'
 
 NLPNET_DATA_DIR = DIR + 'nlpnet'

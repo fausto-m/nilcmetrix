@@ -30,6 +30,7 @@ DEFAULT_OPTIONS = {
     'username': 'cohmetrix',
     'password': 'cohmetrix',
     'host': 'pgs_cohmetrix',
+    # 'host': 'localhost',
     'port': '5432',
     'database': 'cohmetrix',
 }

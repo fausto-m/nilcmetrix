@@ -36,3 +36,6 @@ from text_metrics.metrics.liwc import *
 from text_metrics.metrics.guten import *
 from text_metrics.metrics.manual import *
 from text_metrics.metrics.manual_print import *
+from text_metrics.metrics.constituents_s import *
+from text_metrics.metrics.aic_s import *
+from text_metrics.metrics.guten_s import *

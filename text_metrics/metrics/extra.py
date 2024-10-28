@@ -16,7 +16,7 @@ class RatioFunctionToContentWords(base.Metric):
 
     def value_for_text(self, t, rp=default_rp):
         content_words = filter(pos_tagger.tagset.is_content_word,
-                               rp.tagged_words(t))
+                               rp._word_tokens(t))
         function_words = filter(pos_tagger.tagset.is_function_word,
                                 rp.tagged_words(t))
         return ilen(function_words) / ilen(content_words)

@@ -22,3 +22,4 @@ from text_metrics.tools.tag.opennlp import OpenNLPTagger
 from text_metrics.tools.tag.macmorpho import OpenNLPMacMorphoTagger, MacMorphoTagSet
 from text_metrics.tools.tag.universal import OpenNLPUniversalTagger, UniversalTagSet
 from text_metrics.tools.tag.nlpnet_tagger import NLPNetTagger
+from text_metrics.tools.tag.spacy_tagger import SpacyTagger
